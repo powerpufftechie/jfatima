@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Day Zero — a one-minute daily reset." />
+  <title>Day Zero</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="eyebrow">DAY ZERO</div>
+      <h1>Start fresh today.</h1>
+      <p class="subtitle">No streaks. No guilt. Just one realistic step.</p>
+    </section>
+
+    <section class="card" id="inputCard">
+      <form id="resetForm">
+        <label for="carry">What are you carrying from yesterday?</label>
+        <textarea
+          id="carry"
+          name="carry"
+          rows="3"
+          maxlength="300"
+          placeholder="I feel behind, tired, or disappointed..."
+          required
+        ></textarea>
+
+        <label for="matters">What matters most today?</label>
+        <textarea
+          id="matters"
+          name="matters"
+          rows="3"
+          maxlength="300"
+          placeholder="Finishing one work task, being present, moving my body..."
+          required
+        ></textarea>
+
+        <fieldset>
+          <legend>How much energy do you have?</legend>
+          <div class="energy-options">
+            <label class="energy-pill">
+              <input type="radio" name="energy" value="low" required />
+              <span>Low</span>
+            </label>
+            <label class="energy-pill">
+              <input type="radio" name="energy" value="medium" checked />
+              <span>Medium</span>
+            </label>
+            <label class="energy-pill">
+              <input type="radio" name="energy" value="high" />
+              <span>High</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <button class="primary-button" type="submit" id="generateButton">
+          Create my reset
+        </button>
+      </form>
+      <p class="privacy-note">Your entries stay in this browser prototype and are not sent anywhere.</p>
+    </section>
+
+    <section class="card result-card hidden" id="resultCard" aria-live="polite">
+      <div class="result-header">
+        <div>
+          <div class="eyebrow">YOUR DAY ZERO</div>
+          <h2>One step for today</h2>
+        </div>
+        <button class="icon-button" id="closeResult" aria-label="Close result">×</button>
+      </div>
+
+      <div class="result-block">
+        <span class="result-label">Release</span>
+        <p id="releaseText"></p>
+      </div>
+
+      <div class="result-block">
+        <span class="result-label">Focus</span>
+        <p id="focusText"></p>
+      </div>
+
+      <div class="result-block action-block">
+        <span class="result-label">Do this now</span>
+        <p id="actionText"></p>
+        <p class="start-time" id="startTimeText"></p>
+      </div>
+
+      <div class="button-row">
+        <button class="secondary-button" id="tryAgainButton">Try again</button>
+        <button class="primary-button" id="copyButton">Copy reset</button>
+      </div>
+
+      <p class="saved-message hidden" id="savedMessage">Copied to your clipboard.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
